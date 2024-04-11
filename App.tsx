@@ -1,15 +1,16 @@
-import colors from 'app/constants/enums/colors';
+import AppTextInput from 'app/components/Input/AppTextInput/AppTextInput';
+import { colors } from 'app/styles/global';
 import Account from 'app/screens/Account/Account';
 import { StyleSheet, View } from 'react-native';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Account
+      {/* <Account
         avatar={require('assets/images/avatar.jpg')}
         name='Khang Nguyen'
         email='khangng2100@gmail.com'
-      />
+      /> */}
 
       {/* <CardDetail
         card={{
@@ -25,6 +26,7 @@ export default function App() {
           itemsCount: 5,
         }}
       /> */}
+      <AppTextInput icon={'mail'} placeholder='hi...' style={{fontWeight: '600'}} />
     </View>
   );
 }

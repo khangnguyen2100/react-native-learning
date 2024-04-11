@@ -11,7 +11,7 @@ import AppHeading from '../common/AppHeading/AppHeading';
 import AppText from '../common/AppText/AppText';
 import styles from './styles';
 import CardType from 'app/constants/types/Card';
-import colors from 'app/constants/enums/colors';
+import { colors } from 'app/styles/global';
 type Props = {
   card: CardType;
   onPress?: ((event: GestureResponderEvent) => void);

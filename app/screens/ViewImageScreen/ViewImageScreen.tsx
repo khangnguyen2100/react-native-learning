@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import styles from './styles';
-import colors from 'app/constants/enums/colors';
+import { colors } from 'app/styles/global';
 
 type Props = {};
 const image = require('assets/images/chair.jpg');

@@ -4,7 +4,7 @@ import React from 'react';
 import { Image, ImageSourcePropType, View } from 'react-native';
 import styles from './styles';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import colors from 'app/constants/enums/colors';
+import { colors } from 'app/styles/global';
 import { IconProps } from '@expo/vector-icons/build/createIconSet';
 
 type Props = {

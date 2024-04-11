@@ -1,5 +1,6 @@
+import defaultStyles from 'app/styles/global';
 import React from 'react';
-import { Platform, StyleProp, StyleSheet, Text, TextStyle } from 'react-native';
+import { StyleProp, StyleSheet, Text, TextStyle } from 'react-native';
 
 type Props = {
   children: React.ReactNode;
@@ -33,14 +34,7 @@ const AppHeading = (props: Props) => {
 };
 const styles = StyleSheet.create({
   text: {
-    ...Platform.select({
-      ios: {
-        fontFamily: 'Avenir',
-      },
-      android: {
-        fontFamily: 'Roboto',
-      },
-    }),
+    ...defaultStyles.text,
   },
 });
 
