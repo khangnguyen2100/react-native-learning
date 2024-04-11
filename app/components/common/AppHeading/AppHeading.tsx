@@ -1,4 +1,3 @@
-import { isAndroid } from 'app/utils/platform';
 import React from 'react';
 import { Platform, StyleProp, StyleSheet, Text, TextStyle } from 'react-native';
 

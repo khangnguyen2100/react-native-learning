@@ -1,14 +1,31 @@
 import colors from 'app/constants/enums/colors';
-import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
-import WelcomeScreen from './app/screens/Welcome/Welcome';
+import Account from 'app/screens/Account/Account';
+import { StyleSheet, View } from 'react-native';
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <WelcomeScreen />
-      {/* <ViewImageScreen /> */}
-      <StatusBar style='auto' />
-    </SafeAreaView>
+    <View style={styles.container}>
+      <Account
+        avatar={require('assets/images/avatar.jpg')}
+        name='Khang Nguyen'
+        email='khangng2100@gmail.com'
+      />
+
+      {/* <CardDetail
+        card={{
+          id: 1,
+          price: 100,
+          thumbnailUrl: require('assets/images/jacket.jpg'),
+          title: 'Red jacket for sale',
+          description: 'In good condition',
+        }}
+        author={{
+          avatar: require('assets/images/avatar.jpg'),
+          name: 'Khang Nguyen',
+          itemsCount: 5,
+        }}
+      /> */}
+    </View>
   );
 }
 
