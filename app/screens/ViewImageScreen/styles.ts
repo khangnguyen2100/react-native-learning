@@ -15,16 +15,6 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     marginRight: 15,
   },
-  button: {
-    width: 50,
-    height: 50,
-  },
-  delete_btn: {
-    backgroundColor: colors.primary,
-  },
-  next_btn: {
-    backgroundColor: colors.secondary,
-  },
   // background
   background: {
     flex: 1,
