@@ -1,9 +1,16 @@
+import { Picker, PickerIOS } from '@react-native-picker/picker';
+import AppPicker from 'app/components/Input/AppPicker/AppPicker';
 import AppTextInput from 'app/components/Input/AppTextInput/AppTextInput';
+import { OptionType } from 'app/constants/types/common';
 import { colors } from 'app/styles/global';
-import Account from 'app/screens/Account/Account';
+import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 
 export default function App() {
+  const [selectedItem, setSelectedItem] = useState<
+    OptionType['value'] | null
+  >();
+
   return (
     <View style={styles.container}>
       {/* <Account
@@ -26,7 +33,19 @@ export default function App() {
           itemsCount: 5,
         }}
       /> */}
-      <AppTextInput icon={'mail'} placeholder='hi...' style={{fontWeight: '600'}} />
+      <AppPicker
+        options={[
+          { label: 'Java', value: 1 },
+          { label: 'Go lang', value: 2 },
+          { label: 'Javascript', value: 3 },
+          { label: 'React', value: 4 },
+          { label: 'PHP', value: 5 },
+        ]}
+        selectedItem={selectedItem}
+        onSelectedItem={value => setSelectedItem(value)}
+        icon={'apps'}
+        placeholder='Category'
+      />
     </View>
   );
 }
