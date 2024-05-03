@@ -35,6 +35,9 @@ const PickerItem = (props: {
 type Props = {
   icon?: any;
   placeholder: string;
+  error?: string;
+  touched?: boolean;
+  background?: 'white' | 'gray';
   selectedItem: OptionType['value'] | null | undefined;
   onSelectedItem: (
     value?: OptionType['value'] | null,
@@ -43,8 +46,19 @@ type Props = {
   ) => void;
   options: OptionType[];
 };
+
 const AppPicker = (props: Props) => {
-  const { icon, placeholder, options, selectedItem, onSelectedItem } = props;
+  const {
+    icon,
+    placeholder,
+    options,
+    selectedItem,
+    onSelectedItem,
+    error,
+    background = 'gray',
+    touched,
+  } = props;
+  console.log('error:', error);
 
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
@@ -63,26 +77,37 @@ const AppPicker = (props: Props) => {
   return (
     <>
       <TouchableWithoutFeedback onPress={handleOpenModal}>
-        <View style={styles.container}>
-          {icon && (
+        <View>
+          <View
+            style={[
+              styles.container,
+              {
+                backgroundColor:
+                  background === 'gray' ? colors.background : colors.white,
+              },
+            ]}
+          >
+            {icon && (
+              <MaterialCommunityIcons
+                name={icon}
+                size={20}
+                color={colors.medium}
+                style={styles.icon}
+              />
+            )}
+
+            <AppText style={[styles.textInput]}>
+              {handleGetSelectedItemLabel(selectedItem) ?? (
+                <AppText style={styles.placeholder}>{placeholder}</AppText>
+              )}
+            </AppText>
             <MaterialCommunityIcons
-              name={icon}
+              name={'chevron-down'}
               size={20}
               color={colors.medium}
-              style={styles.icon}
             />
-          )}
-
-          <AppText style={[styles.textInput]}>
-            {handleGetSelectedItemLabel(selectedItem) ?? (
-              <AppText style={styles.placeholder}>{placeholder}</AppText>
-            )}
-          </AppText>
-          <MaterialCommunityIcons
-            name={'chevron-down'}
-            size={20}
-            color={colors.medium}
-          />
+          </View>
+          {error && touched && <AppText style={styles.error}>{error}</AppText>}
         </View>
       </TouchableWithoutFeedback>
       {/* modal */}
@@ -127,9 +152,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     borderRadius: 25,
-    backgroundColor: colors.white,
     padding: 15,
-    marginVertical: 10,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -146,6 +169,12 @@ const styles = StyleSheet.create({
     flex: 1,
     width: '100%',
     fontWeight: '600',
+  },
+  error: {
+    color: colors.danger,
+    opacity: 0.8,
+    marginLeft: 2,
+    marginTop: 3,
   },
   buttons: {
     flexDirection: 'row',

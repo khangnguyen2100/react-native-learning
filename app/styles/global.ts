@@ -7,6 +7,7 @@ export const colors = {
   background: '#f8f4f4',
   medium: '#6e6969',
   blue: 'dodgerblue',
+  danger: '#ff5252',
   black: '#222',
   white: 'white',
 };

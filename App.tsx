@@ -1,7 +1,9 @@
 import { Picker, PickerIOS } from '@react-native-picker/picker';
-import AppPicker from 'app/components/Input/AppPicker/AppPicker';
 import AppTextInput from 'app/components/Input/AppTextInput/AppTextInput';
 import { OptionType } from 'app/constants/types/common';
+import CreateItem from 'app/screens/CreateItem/CreateItem';
+import ListingScreen from 'app/screens/ListingScreen/ListingScreen';
+import Login from 'app/screens/Login/Login';
 import { colors } from 'app/styles/global';
 import { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
@@ -33,19 +35,8 @@ export default function App() {
           itemsCount: 5,
         }}
       /> */}
-      <AppPicker
-        options={[
-          { label: 'Java', value: 1 },
-          { label: 'Go lang', value: 2 },
-          { label: 'Javascript', value: 3 },
-          { label: 'React', value: 4 },
-          { label: 'PHP', value: 5 },
-        ]}
-        selectedItem={selectedItem}
-        onSelectedItem={value => setSelectedItem(value)}
-        icon={'apps'}
-        placeholder='Category'
-      />
+      {/* <Login /> */}
+      <CreateItem />
     </View>
   );
 }
@@ -53,7 +44,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
     alignItems: 'center',
     justifyContent: 'center',
   },
